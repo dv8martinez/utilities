@@ -32,3 +32,36 @@ console.clear();
 // console.log(reduceTest);
 // console.log('UAAAAA')
 console.log(date);
+
+//somar valores de array
+
+var list = [
+    {name: 'David', age: 33, kg: 89},
+    {name: 'Paulo', age: 30, kg: 80},
+    {name: 'Felipe', age: 39, kg: 70},
+] ;
+var suma = list.reduce(function (total, currentValue) {
+    const peso = total + currentValue.kg;
+    const idades =  total + currentValue.age;
+    return idades;
+}, 0);
+console.log(suma);
+
+const arr = ['1' , '4' , '3' , '5' , '3'];
+
+let obj = list.reduce((acc, val) => (
+    {...acc, [val.age]: val.age}), {});
+//                                                         ^--- initial value
+console.log(obj);
+
+// const {total, quantity} = [{qta:5, prezzo: 100}, {qta:5, prezzo: 100}, {qta:5, prezzo: 100}]
+const  {totalIdade, totalPeso} = list.reduce((acc, result) => {
+     
+      acc.totalIdade += result.age;
+      acc.totalPeso += result.kg;
+     
+      return acc;
+}, {totalIdade:0, totalPeso:0});
+    
+
+console.log('Total Idade', totalIdade, 'Total Peso', totalPeso);
